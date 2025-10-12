@@ -34,7 +34,7 @@ public class Attempt {
     private String failedTests;
 
     @Column(name = "total_mark", nullable = false)
-    private double totalMark;
+    private Double totalMark;
 
     @Column(nullable=false, updatable=false)
     private LocalDateTime createdAt;
