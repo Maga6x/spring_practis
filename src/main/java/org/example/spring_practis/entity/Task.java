@@ -21,13 +21,20 @@ public class Task {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "laguage_id", nullable = false,
+    @JoinColumn(name = "language_id",
             foreignKey = @ForeignKey(name = "fk_task_language"))
     private CompilerLanguage language;
     private String name;
     private String description;
 
     @Column(name = "task_order")
-    private int order;
+    private Integer taskOrder;
     private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
+    }
 }

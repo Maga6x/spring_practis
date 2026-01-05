@@ -1,15 +1,14 @@
 package org.example.spring_practis.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import org.example.spring_practis.entity.CompilerLanguage;
 import org.example.spring_practis.entity.Task;
 
 import java.time.LocalDateTime;
 
-public record AttemptResponse (
+public record TestResponse(
         Long id,
         Long taskId,
-        String answerCode,
-        String passedTests,
-        String failedTests,
-        Double totalMark,
+        String inputValues,
+        String expectedResults,
         LocalDateTime createdAt){}
